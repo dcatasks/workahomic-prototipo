@@ -1,22 +1,29 @@
-import React, { useState } from "react";
+import React from "react";
 import TaskCard from './TaskCard';
 
-const TaskList = ({ title, cards, listID, index, dispatch }) => {
+const TaskList = ({ title, cards}) => {
+
     return(
         <div style={styles.container}>
             <h4>{title}</h4>
-            <TaskCard></TaskCard>
+            { cards.map(card => (
+                <TaskCard 
+                    key={card.id}
+                    text={card.text} 
+                />
+            ))}
         </div>
     
-    )
+    );
 }
 
 const styles = {
     container: {
-        backgroundColor: '#ccc',
+        backgroundColor: '#dfe3e6',
         borderRadius: 3,
         width: 300,
-        padding: 8
+        padding: 8,
+        marginRight: 8
     }
 };
 

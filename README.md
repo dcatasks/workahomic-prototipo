@@ -1,10 +1,10 @@
-# Getting Started with Create React App
+# Prototipo de Workahomic
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Esto es un prototipo de la WebApp *Workahomic* y forma parte del proyecto de fin de grado superior del ciclo de Desarrollo de Aplicaciones Multiplataforma en San Valero. 
 
-## Available Scripts
+## Para probarlo
 
-In the project directory, you can run:
+Dentro del directorio del proyecto, ejecuta:
 
 ### `yarn start`
 
@@ -13,6 +13,10 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
+
+## Uso
+
+
 
 ### `yarn test`
 
