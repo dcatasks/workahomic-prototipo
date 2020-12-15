@@ -1,12 +1,14 @@
 import React from "react";
 import Icon from '@material-ui/core/Icon'
 import Card from '@material-ui/core/Card'
+import Button from "@material-ui/core/Button";
 import TextArea from 'react-textarea-autosize';
 
 class ActionButton extends React.Component {
 
     state = {
-        formOpen: false
+        formOpen: false,
+        text: ""
     }
 
     openForm = () => {
@@ -18,6 +20,12 @@ class ActionButton extends React.Component {
     closeForm = (e) => {
         this.setState({
             formOpen: false
+        })
+    }
+
+    handleInputChange = (e) => {
+        this.setState({
+            text: e.target.value
         })
     }
 
@@ -33,7 +41,7 @@ class ActionButton extends React.Component {
             <div 
                 onClick={this.openForm}
                 style={{
-                    ...styles.openForButtonGroup,
+                    ...styles.openFormButtonGroup,
                     opacity: buttonTextOpacity,
                     color: buttonTextColor,
                     backgroundColor: buttonTextBackground
@@ -56,12 +64,38 @@ class ActionButton extends React.Component {
         
         return (
             <div>
-                <Card>
+                <Card style={{
+                    overflow: "visible",
+                    minHeight: 80,
+                    minWidth: 272,
+                    padding: "6px 8px 2px"
+                }}>
                     <TextArea 
                         placeholder={placeholder} 
                         autoFocus 
-                        onBlur={this.closeForm}/>
+                        onBlur={this.closeForm}
+                        value={this.state.text}
+                        onChange={this.handleInputChange}
+                        style={{
+                            resize: "none",
+                            width: "100",
+                            overflow: "hidden",
+                            outline: "none",
+                            border: "none"
+                        }}
+                    />
                 </Card>
+                <div style={styles.formButtonGroup}>
+                    <Button 
+                        variant='contained' 
+                        style={{
+                            color: "white",
+                            backgroundColor: "#5aac44"
+                        }}>
+                            {buttonTitle}
+                    </Button>
+                    <Icon style={{marginLeft: 8, cursor: "pointer"}}>close</Icon>
+                </div>
             </div>
         );
     };
@@ -72,7 +106,7 @@ class ActionButton extends React.Component {
 }
 
 const styles = {
-    openForButtonGroup: {
+    openFormButtonGroup: {
         display: "flex",
         alignItems: "center",
         cursor: "pointer",
@@ -80,6 +114,12 @@ const styles = {
         height: 36,
         width: 272,
         paddingLeft: 10
+    },
+    formButtonGroup: {
+        marginTop: 8,
+        display: "flex",
+        alignItems: "center",
+
     }
 }
 
