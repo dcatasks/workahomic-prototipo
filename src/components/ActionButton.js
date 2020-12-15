@@ -3,6 +3,8 @@ import Icon from '@material-ui/core/Icon'
 import Card from '@material-ui/core/Card'
 import Button from "@material-ui/core/Button";
 import TextArea from 'react-textarea-autosize';
+import { connect } from "react-redux";
+import { addList } from "../actions";
 
 class ActionButton extends React.Component {
 
@@ -27,6 +29,17 @@ class ActionButton extends React.Component {
         this.setState({
             text: e.target.value
         })
+    }
+
+    handleAddList = () => {
+        const { dispatch } = this.props;
+        const { text } = this.state;
+
+        if(text){
+            dispatch(addList(text));
+        }
+
+        return;
     }
 
     renderAddButton = () => {
@@ -87,6 +100,7 @@ class ActionButton extends React.Component {
                 </Card>
                 <div style={styles.formButtonGroup}>
                     <Button 
+                        onMouseDown={this.handleAddList}
                         variant='contained' 
                         style={{
                             color: "white",
@@ -123,4 +137,4 @@ const styles = {
     }
 }
 
-export default ActionButton;
+export default connect() (ActionButton);
