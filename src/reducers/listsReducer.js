@@ -25,6 +25,10 @@ const initialState = [
                 id: 1,
                 text: 'Prototipo backend'
             },
+            {
+                id: 2,
+                text: 'Prototipo backend'
+            },
         ]
     }
 ]
