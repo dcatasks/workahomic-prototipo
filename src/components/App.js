@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import TaskList from './TaskList';
 import { connect } from "react-redux";
 import ActionButton from './ActionButton';
+import PrimarySearchAppBar from './AppBar';
 
 class App extends Component {
   render() {
@@ -9,6 +10,7 @@ class App extends Component {
     const { lists } = this.props;
     return (
       <div className="App">
+        <PrimarySearchAppBar />
         <h2>Lista de tareas</h2>
         <div style={styles.listsContainer}>
           {lists.map(list => (
